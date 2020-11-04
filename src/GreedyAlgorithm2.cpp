@@ -5,7 +5,7 @@ struct actime
 {
     int start,finish;
 }act[1002];
-bool cmp(actime a,actime b){
+bool cmp(actime a,actime b){//判断第一个活动是不是在第二个活动结束之前结束
     return a.finish<b.finish;
 }
 
@@ -22,12 +22,13 @@ int main(){
         for (i=0;i<n; i++)
         {
             if(t<=act[i].start){
+        //若被检查的活动i的开始时间starti小于最近选择的活动j的结束时间endj，则不选择活动i，否则选择活动i加入集合中。
                 total++;
                 t=act[i].finish;
             }
         }
         cout<< total <<endl;
-        
+
     }
     
 
